@@ -19,30 +19,4 @@ self.addEventListener('fetch', event => {
       .then(response => response || fetch(event.request))
   );
 });
-// Security enhancements for GitHub Pages
-(function() {
-    'use strict';
-    
-    // Prevent clickjacking
-    if (top !== self) {
-        top.location = self.location;
-    }
-    
-    // Disable right-click in production
-    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-    }
-    
-    // Prevent console access in production
-    if (window.location.hostname !== 'localhost') {
-        console.log = function() {};
-        console.warn = function() {};
-        console.error = function() {};
-    }
-    
-    // Set secure cookie attributes if any cookies are used
-    document.cookie = "SameSite=Strict; Secure";
-})();
+
